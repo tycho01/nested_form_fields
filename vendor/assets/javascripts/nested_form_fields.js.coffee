@@ -23,7 +23,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child_templates = $parsed_template.closestChild('.form_template')
       $child_templates.each (ndx, ch) ->
         $child = $(ch)
-        $child.replaceWith($("<script class='#{$child.attr('class')}' type='text/html' />").html($child.html()))
+        $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
       $tmp.before( $parsed_template )
     $.event.trigger("fields_added.nested_form_fields",{object_class: object_class});
     false
