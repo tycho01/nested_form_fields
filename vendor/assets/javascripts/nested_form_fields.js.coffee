@@ -8,8 +8,8 @@ nested_form_fields.bind_nested_forms_links = () ->
     $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class});
     association_path = $link.data('association-path')
     $template = $(".#{association_path}_template")
-    $template.each(function() {
-      $tmp = $(this);
+    $template.each () ->
+      $tmp = $(this)
       template_html = $tmp.html()
   
       # insert association indexes
@@ -22,9 +22,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child_templates.each () ->
         $child = $(this)
         $child.replaceWith($("<script class='#{$child.attr('class')}' type='text/html' />").html($child.html()))
-  
       $tmp.before( $parsed_template )
-    });
     $.event.trigger("fields_added.nested_form_fields",{object_class: object_class});
     false
 
