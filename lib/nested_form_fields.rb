@@ -70,6 +70,7 @@ module ActionView::Helpers
       #
       @template.content_tag( for_template ? :div : :script,
                              type: for_template ? nil : 'text/html',
+                             id: template_id(association_name),
                              class: template_id(association_name) + " " + (for_template ? 'form_template' : ""),
                              style: for_template ? 'display:none' : nil ) do
         nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend]) do
