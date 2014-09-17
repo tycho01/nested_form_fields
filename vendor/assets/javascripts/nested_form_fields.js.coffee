@@ -19,7 +19,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       # replace child template div tags with script tags to avoid form submission of templates
       #$parsed_template = $(template_html)
       #regular html to dom conversion broken, so use a different one:
-      $parsed_template = (new DOMParser()).parseFromString(template_html, "text/xml").firstChild
+      $parsed_template = $((new DOMParser()).parseFromString(template_html, "text/xml").firstChild)
       $child_templates = $parsed_template.closestChild('.form_template')
       $child_templates.each (ndx, ch) ->
         $child = $(ch)
